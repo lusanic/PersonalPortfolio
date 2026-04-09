@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>2014 — Luke Li</title>
+<base href="../">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Luke Li</a>
+  <ul class="nav-links">
+    <li><a href="index.html#sec-games">Games</a></li>
+    <li><a href="index.html#sec-writings">Writings</a></li>
+    <li><a href="index.html#sec-music">Music</a></li>
+    <li><a href="index.html#sec-about">About</a></li>
+  </ul>
+</nav>
+
+<div style="padding-top:60px">
+  <div class="back-bar">
+    <a href="index.html#sec-games" class="back-btn"><span class="b-arr"></span> All Games</a>
+  </div>
+  <div class="d-hero" id="d-hero"></div>
+  <div class="d-layout">
+    <nav class="d-sidenav" id="d-sidenav" aria-label="Page sections"></nav>
+    <div class="d-body">
+      <div class="d-overview">
+        <div class="d-ov-inner">
+          <div id="d-main"></div>
+          <div id="d-sidebar"></div>
+        </div>
+      </div>
+      <div class="sections-wrap" id="sections-wrap"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">Luke Li</span>
+  <span class="f-copy">© 2025 — All rights reserved</span>
+</footer>
+
+<script src="data.js"></script>
+<script>const GAMES = {};</script>
+<script src="games/2014.js"></script>
+<script>const GAME_ID = "2014";</script>
+<script src="game-detail.js"></script>
+</body>
+</html>

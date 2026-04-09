@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lighthouse Log — Luke Li</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<base href="../">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">Luke Li</a>
+  <ul class="nav-links">
+    <li><a href="index.html#sec-games">Games</a></li>
+    <li><a href="index.html#sec-writings">Writings</a></li>
+    <li><a href="index.html#sec-music">Music</a></li>
+    <li><a href="index.html#sec-about">About</a></li>
+  </ul>
+</nav>
+
+<div style="padding-top:60px">
+  <div class="back-bar">
+    <a href="index.html#sec-writings" class="back-btn"><span class="b-arr"></span> All Writings</a>
+  </div>
+
+  <div class="wp-hero rv">
+    <div class="wp-type">Character Dialogues</div>
+    <div class="wp-game">The Hilltop Funeral</div>
+    <h1 class="wp-title">The Hilltop Funeral: Sample Dialogues</h1>
+    <p class="wp-excerpt">Sample Dialogues between the 2 playable characters in a 2 player physics co-op game. The dialogues shown below are spawned at random intervals when the two players are casually moving through a level without any special conditions triggering.</p>
+  </div>
+
+  <div class="wp-divider"></div>
+
+  <div class="wp-content rv" style="max-width:1100px">
+    <div class="yarn-embed" data-src="writings/pdf/CarryDialogues.yarn"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">Luke Li</span>
+  <span class="f-copy">© 2025 — All rights reserved</span>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(tick)})();
+document.addEventListener('mouseover',e=>{
+  const h=e.target.closest('a,button');
+  curR.style.transform=h?'translate(-50%,-50%) scale(1.5)':'translate(-50%,-50%) scale(1)';
+  curR.style.borderColor=h?'rgba(170,34,23,.4)':'rgba(170,34,23,.25)';
+});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+</script>
+<script>
+document.querySelectorAll('.yarn-embed').forEach(async el => {
+  const src = el.dataset.src;
+  if (!src) return;
+  el.innerHTML = '<div class="yarn-loading">Loading…</div>';
+  try {
+    const text = await fetch(src).then(r => r.text());
+    const nodes = text.split(/^===\s*$/m).map(s => s.trim()).filter(Boolean);
+    el.innerHTML = nodes.map(node => {
+      const lines = node.split('\n');
+      const titleLine = lines.find(l => l.startsWith('title:'));
+      const title = titleLine ? titleLine.replace('title:', '').trim() : 'Node';
+      const body = lines.filter(l => !l.match(/^(title|tags|position|color):/i) && l.trim() !== '---' && !l.trim().startsWith('#')).join('\n');
+      const highlighted = body
+        .split('\n')
+        .map(l => {
+          l = l.replace(/\s+#\S+/g, '').trimEnd();
+          const esc = l.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+          if (/^\/\//.test(l.trim()))        return `<span class="yn-comment">${esc}</span>`;
+          if (/^->/.test(l.trim()))          return `<span class="yn-option">${esc}</span>`;
+          if (/^<</.test(l.trim()))          return `<span class="yn-command">${esc}</span>`;
+          if (/^\[if|^\[else|^\[endif/.test(l.trim().toLowerCase())) return `<span class="yn-cond">${esc}</span>`;
+          if (l.trim() === '')               return '<span class="yn-blank"> </span>';
+          return `<span class="yn-line">${esc}</span>`;
+        }).join('\n');
+      return `<div class="yn-node"><div class="yn-node-title">${title}</div><pre class="yn-body">${highlighted}</pre></div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML = '<div class="yarn-loading">Could not load file.</div>';
+  }
+});
+</script>
+</body>
+</html>

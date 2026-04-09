@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Luke Li — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#sec-hero" class="nav-logo" id="nav-logo">Luke Li</a>
+  <ul class="nav-links">
+    <li><a href="#sec-games"    data-s="games">Games</a></li>
+    <li><a href="#sec-writings" data-s="writings">Writings</a></li>
+    <li><a href="#sec-press"    data-s="press">Accolades</a></li>
+    <li><a href="#sec-about"    data-s="about">About</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN PAGE -->
+<main id="main-page">
+
+  <!-- HERO -->
+  <section id="sec-hero">
+    <div class="hg"></div>
+    <!-- left: name + statement + nav buttons -->
+    <div class="h-left">
+      <div class="h-eyebrow" id="h-eyebrow"></div>
+      <div class="h-name" id="h-name"></div>
+      <div class="h-name-row2">
+        <div class="h-name-sub" id="h-name-sub"></div>
+      </div>
+      <p class="h-bio" id="h-bio"></p>
+      <div class="h-statement">
+        <div class="h-nav-btns">
+          <a href="#sec-games"    class="h-nav-btn">Games</a>
+          <a href="#sec-writings" class="h-nav-btn">Writings</a>
+        </div>
+      </div>
+    </div>
+    <!-- right: photo collage -->
+    <div class="h-right">
+      <div class="h-collage" id="h-collage"></div>
+    </div>
+    <div class="h-scroll">Scroll</div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="sec-games">
+    <div class="wrap">
+      <div class="sh rv"><span class="sh-num">01</span><h2 class="sh-title">Games</h2></div>
+      <div id="games-container"></div>
+    </div>
+  </section>
+
+  <!-- WRITINGS -->
+  <section id="sec-writings">
+    <div class="wrap" style="background:var(--bg2);max-width:none;padding:100px 8vw">
+      <div style="max-width:1320px;margin:0 auto">
+        <div class="sh rv"><span class="sh-num">02</span><h2 class="sh-title"><em>Writing</em> Samples</h2></div>
+        <div class="w-list" id="w-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="sec-about">
+    <div class="wrap" style="background:var(--bg);max-width:none;padding:100px 8vw">
+      <div style="max-width:1320px;margin:0 auto">
+        <div class="sh rv"><span class="sh-num">03</span><h2 class="sh-title">About <em>Me</em></h2></div>
+        <div class="ab-grid" id="ab-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS & EVENTS -->
+  <section id="sec-press">
+    <div class="wrap" style="background:var(--bg2);max-width:none;padding:100px 8vw">
+      <div style="max-width:1320px;margin:0 auto">
+        <div class="sh rv"><span class="sh-num">04</span><h2 class="sh-title">Press <em>&amp;</em> Events</h2></div>
+        <div class="pe-grid">
+          <div class="rv" id="exhibitions-list"></div>
+          <div class="rv" style="transition-delay:60ms" id="press-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-logo" id="f-logo"></span>
+    <span class="f-copy">© 2025 — All rights reserved</span>
+  </footer>
+
+</main>
+
+<!-- ── DATA + GAME FILES ──────────────────────────────────────
+     To add a new game: create games/<id>.js, add the id to
+     DATA.games.professional or DATA.games.personal in data.js,
+     then add a <script src="games/<id>.js"> tag below,
+     and create games/<id>.html for the detail page.
+──────────────────────────────────────────────────────────── -->
+<script src="data.js"></script>
+<script>const GAMES = {};</script>
+<script src="games/the-hilltop-funeral.js" onerror="console.warn('missing: the-hilltop-funeral.js')"></script>
+<script src="games/inkression.js" onerror="console.warn('missing: inkression.js')"></script>
+<script src="games/monostrophe.js" onerror="console.warn('missing: monostrophe.js')"></script>
+<script src="games/2014.js" onerror="console.warn('missing: 2014.js')"></script>
+<script src="games/blank-view.js" onerror="console.warn('missing: blank-view.js')"></script>
+<script src="games/s-s-s-s.js" onerror="console.warn('missing: s-s-s-s.js')"></script>
+<script src="games/randomly-selected.js" onerror="console.warn('missing: randomly-selected.js')"></script>
+<script src="games/6ate.js" onerror="console.warn('missing: 6ate.js')"></script>
+<!-- To add a game: create games/<id>.js, add its id to DATA.games in data.js, add <script> and HTML page -->
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CURSOR
+// ═══════════════════════════════════════════════════════════
+const cur=document.getElementById('cur'), curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(tick)})();
+document.addEventListener('mouseover',e=>{
+  const h=e.target.closest('a,button,.g-row,.w-row,.m-row');
+  curR.style.transform=h?'translate(-50%,-50%) scale(1.5)':'translate(-50%,-50%) scale(1)';
+  curR.style.borderColor=h?'rgba(170,34,23,.4)':'rgba(170,34,23,.25)';
+});
+
+// ═══════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════
+const gname = id => { if(!id) return 'Standalone'; const g=GAMES[id]; return g?g.title:id; };
+const esc   = s  => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+
+// ── Hero ──────────────────────────────────────────────────
+function buildHero() {
+  const [fn, ln] = DATA.name.split(' ');
+  document.getElementById('h-eyebrow').textContent   = DATA.tagline;
+  document.getElementById('h-name').textContent      = fn;
+  document.getElementById('h-name-sub').textContent  = ln + '.';
+  const bioKeywords = [['code','play'], ['play','stories']];
+  const bioLines = DATA.heroBio.split(/\n+/).filter(Boolean);
+  document.getElementById('h-bio').innerHTML = bioLines.map((line, i) => {
+    const kws = bioKeywords[i] || [];
+    const highlighted = kws.reduce((s, w) =>
+      s.replace(new RegExp(`\\b(${w})\\b`, 'gi'), '<span class="h-bio-kw">$1</span>'), line);
+    return `<span class="h-bio-l${i+1}">${highlighted}</span>`;
+  }).join('');
+  document.getElementById('nav-logo').textContent    = DATA.name;
+  document.getElementById('f-logo').textContent      = DATA.name;
+  document.title = DATA.name + ' — Portfolio';
+
+  // collage
+  buildCollage();
+}
+
+function buildCollage() {
+  const el = document.getElementById('h-collage');
+  if (!el) return;
+
+  // Define collage items.
+  // Set src to your image paths. Leave src empty ("") for placeholders.
+  // is_me: true marks your portrait as the center piece.
+  // The layout is defined as percentages of the panel width/height.
+  const items = DATA.collage || [
+    { src:'', is_me:true, scale:34, top:18, left:30, rot:-1 },
+    { src:'', scale:26, top: 5, left: 4, rot: 3 },
+    { src:'', scale:24, top: 8, left:66, rot:-3 },
+    { src:'', scale:22, top:60, left: 6, rot:-2 },
+    { src:'', scale:24, top:58, left:68, rot: 2 },
+    { src:'', scale:18, top:34, left: 2, rot: 4 },
+  ];
+
+  // randomise entry order
+  const delays = items.map((_, i) => i);
+  for (let i = delays.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [delays[i], delays[j]] = [delays[j], delays[i]];
+  }
+
+  el.innerHTML = items.map((item, i) => {
+    const imgHtml = item.src
+      ? `<img src="${item.src}" alt="" onerror="this.parentElement.querySelector('.h-col-ph').style.display='flex';this.style.display='none'">`
+      : '';
+    const ph = `<div class="h-col-ph" style="${item.src ? 'display:none' : ''}">${item.is_me ? '☻' : '✦'}</div>`;
+    const inner = item.link
+      ? `<a href="${item.link}" target="_blank" rel="noopener">${imgHtml}${ph}</a>`
+      : `${imgHtml}${ph}`;
+    const rot = item.rot || 0;
+    const delay = (delays[i] * 80 + 300).toFixed(0);
+    return `<div class="h-col-item${item.is_me ? ' is-me' : ''}${item.link ? ' has-link' : ''}" style="
+      --col-rot:rotate(${rot}deg);
+      width:${item.scale || 25}%;
+      height:auto;
+      top:${item.top}%;
+      left:${item.left}%;
+      transform:rotate(${rot}deg);
+      z-index:${i + 1};
+      animation-delay:${delay}ms;
+    ">${inner}</div>`;
+  }).join('');
+}
+
+// ── Games list ────────────────────────────────────────────
+function buildGames() {
+  const container = document.getElementById('games-container');
+
+  function renderSubsection(ids, label, delay) {
+    const sub = document.createElement('div');
+    sub.className = 'g-subsection rv';
+    sub.style.transitionDelay = delay + 'ms';
+
+    const heading = document.createElement('div');
+    heading.className = 'g-sub-heading';
+    heading.textContent = label;
+    sub.appendChild(heading);
+
+    const list = document.createElement('div');
+    list.className = 'games-list';
+
+    ids.forEach((id, i) => {
+      const g = GAMES[id]; if (!g) return;
+      const row = document.createElement('div');
+      row.className = 'g-row rv';
+      row.style.transitionDelay = (delay + 60 + i * 55) + 'ms';
+
+      const rolePills = (Array.isArray(g.role) ? g.role : [g.role])
+        .map(t => `<span class="pill-role">${t}</span>`).join('');
+      const coverHtml = g.coverImage
+        ? `<img src="${g.coverImage}" alt="${esc(g.title)}">`
+        : '';
+      const toolPills = (Array.isArray(g.tools) ? g.tools : [g.tools]).filter(Boolean)
+        .map(t => `<span class="pill-tool">${t}</span>`).join('');
+      const teamHtml = g.team ? `<div class="g-meta-item"><span class="g-meta-label">Team</span><span class="g-meta-val">${g.team} people</span></div>` : '';
+      const toolHtml = toolPills ? `<div class="g-meta-item"><span class="g-meta-label">Tools</span><div class="g-meta-pills">${toolPills}</div></div>` : '';
+
+      row.innerHTML = `
+        <div class="g-main">
+          <span class="g-year">${g.year || ''}</span>
+          <span class="g-title">${g.title}</span>
+          <span class="g-sep">·</span>
+          <span class="g-genre">${g.genre}</span>
+          <div class="g-roles">${rolePills}</div>
+          <span class="g-arr">→</span>
+        </div>
+        <div class="g-expand">
+          <div class="g-expand-img">${coverHtml}</div>
+          <div class="g-expand-body">
+            <p class="g-expand-desc">${g.shortDesc || ''}</p>
+            <div class="g-expand-meta">${toolHtml}</div>
+          </div>
+        </div>`;
+
+      row.addEventListener('click', () => { window.location.href = 'games/' + id + '.html'; });
+
+      list.appendChild(row);
+    });
+
+    sub.appendChild(list);
+    container.appendChild(sub);
+  }
+
+  renderSubsection(DATA.games.professional,    'Professional', 0);
+  renderSubsection(DATA.games.personal,        'Personal Projects', 200);
+  if (DATA.games['non-digital'] && DATA.games['non-digital'].length)
+    renderSubsection(DATA.games['non-digital'], 'Non-Digital', 400);
+}
+
+// ── Writings ──────────────────────────────────────────────
+function buildWritings() {
+  const list = document.getElementById('w-list');
+  DATA.writings.forEach((w, i) => {
+    const r = document.createElement('div');
+    r.className = 'w-row rv'; r.style.transitionDelay = (i * 55) + 'ms';
+    r.innerHTML = `
+      <div class="w-meta">
+        <div class="w-game">${gname(w.gameId)}</div>
+        <div class="w-type">${w.type}</div>
+      </div>
+      <div>
+        <div class="w-title">${w.title}</div>
+        <div class="w-excerpt">${w.excerpt}</div>
+      </div>
+      <div class="w-arrow">→</div>`;
+
+    if (w.pageUrl) r.addEventListener('click', () => { window.location.href = w.pageUrl; });
+    list.appendChild(r);
+  });
+}
+
+// ── Music ─────────────────────────────────────────────────
+function buildMusic() {
+  const list = document.getElementById('m-list');
+  const audios = {};
+  DATA.music.forEach((m, i) => {
+    const row = document.createElement('div');
+    row.className = 'm-row rv'; row.style.transitionDelay = (i * 45) + 'ms';
+    const ha = m.audioFile && m.audioFile !== '';
+    row.innerHTML = `
+      <div>
+        <div class="m-info">
+          <span class="m-title">${m.title}</span>
+          <span class="m-game">${gname(m.gameId)}</span>
+        </div>
+        <div class="m-desc-row">${m.desc}</div>
+      </div>
+      <div class="m-controls">
+        <button class="pbtn" ${!ha ? 'style="opacity:.3;pointer-events:none"' : ''}>▶</button>
+        <div class="m-bar"><div class="m-fill"></div></div>
+        <span class="m-dur">${m.duration}</span>
+        ${m.externalUrl && m.externalUrl !== '#' ? `<a href="${m.externalUrl}" target="_blank" class="m-ext-link">↗</a>` : ''}
+      </div>`;
+    list.appendChild(row);
+    if (ha) {
+      const a   = new Audio(m.audioFile);
+      const btn = row.querySelector('.pbtn');
+      const fill= row.querySelector('.m-fill');
+      const dur = row.querySelector('.m-dur');
+      btn.addEventListener('click', () => {
+        Object.values(audios).forEach(x => { if (x !== a) { x.pause(); x.currentTime = 0; }});
+        document.querySelectorAll('.pbtn').forEach(b => { b.textContent='▶'; b.classList.remove('playing'); });
+        document.querySelectorAll('.m-fill').forEach(f => f.style.width = '0%');
+        if (a.paused) { a.play(); btn.textContent = '■'; btn.classList.add('playing'); }
+        else { a.pause(); btn.textContent = '▶'; btn.classList.remove('playing'); }
+      });
+      a.addEventListener('timeupdate', () => {
+        if (a.duration) {
+          fill.style.width = (a.currentTime / a.duration * 100) + '%';
+          const r = a.duration - a.currentTime;
+          dur.textContent = Math.floor(r/60) + ':' + String(Math.floor(r%60)).padStart(2,'0');
+        }
+      });
+      a.addEventListener('ended', () => { btn.textContent='▶'; btn.classList.remove('playing'); fill.style.width='0%'; dur.textContent=m.duration; });
+      audios[i] = a;
+    }
+  });
+}
+
+// ── About ─────────────────────────────────────────────────
+function buildAbout() {
+  const aboutKws = ['narrative-centric gameplay', 'interactive systems', 'real-life inspiration', 'player choice', 'narrative arcs'];
+  function highlightAbout(text) {
+    return aboutKws.reduce((s, w) =>
+      s.replace(new RegExp(`(${w.replace(/[-]/g,'\\$&')})`, 'gi'), '<span class="ab-kw">$1</span>'), text);
+  }
+  const bios = DATA.aboutBio.map(p => `<p>${highlightAbout(p)}</p>`).join('');
+  document.getElementById('ab-grid').innerHTML = `
+    <div class="ab-text rv">${bios}</div>
+    <div class="rv" style="transition-delay:80ms">
+      <div class="ab-block"><div class="ab-lbl">Based In</div><div class="ab-val">${DATA.details.basedIn}</div></div>
+      ${DATA.details.education && DATA.details.education.length ? `<div class="ab-block"><div class="ab-lbl">Education</div><div class="ab-val ab-edu">${DATA.details.education.map(e=>`<div class="ab-edu-item"><span class="ab-edu-deg">${e.degree}</span><span class="ab-edu-school">${e.school}</span>${e.year?`<span class="ab-edu-year">${e.year}</span>`:''}</div>`).join('')}</div></div>` : ''}
+      <div class="ab-block"><div class="ab-lbl">Tools</div><div class="ab-tools">${DATA.details.tools.split('·').map(t=>`<span class="pill-tool">${t.trim()}</span>`).join('')}</div></div>
+      <div class="ab-block"><div class="ab-lbl">Contact</div><div class="ab-val"><a href="mailto:${DATA.details.contact}" style="color:var(--red)">${DATA.details.contact}</a></div></div>
+      <div class="ab-socials">${DATA.socials.filter(s=>s.url).map(s=>`<a href="${s.url}" target="_blank" class="soc"><span class="soc-line"></span>${s.label}</a>`).join('')}</div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════════
+// NAV ACTIVE STATE
+// ═══════════════════════════════════════════════════════════
+function initNav() {
+  const ids = ['games','writings','about','press'];
+  const links = document.querySelectorAll('.nav-links a[data-s]');
+  function update() {
+    let cur = '';
+    ids.forEach(id => {
+      const el = document.getElementById('sec-' + id);
+      if (el && window.scrollY >= el.offsetTop - 100) cur = id;
+    });
+    links.forEach(a => a.classList.toggle('on', a.dataset.s === cur));
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+}
+
+// ═══════════════════════════════════════════════════════════
+// INTERSECTION OBSERVER
+// ═══════════════════════════════════════════════════════════
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }});
+}, {threshold: .08});
+
+function initObserver() {
+  document.querySelectorAll('.rv').forEach(r => obs.observe(r));
+}
+
+// ── Press ─────────────────────────────────────────────────
+function buildPress() {
+  const el = document.getElementById('press-list');
+  if (!el || !DATA.press || !DATA.press.length) return;
+  el.innerHTML = '<div class="ab-sub-title">Press Coverage</div>' +
+    DATA.press.map((p, i) => `
+    <a href="${p.url}" target="_blank" rel="noopener" class="press-row" style="transition-delay:${i*40}ms">
+      <span class="press-pub">${p.publication}</span>
+      <span class="press-title">${p.title}</span>
+      <span class="press-date">${p.date}</span>
+      <span class="press-arr">↗</span>
+    </a>`).join('');
+}
+
+// ── Exhibitions ───────────────────────────────────────────
+function buildExhibitions() {
+  const el = document.getElementById('exhibitions-list');
+  if (!el || !DATA.exhibitions || !DATA.exhibitions.length) return;
+  el.innerHTML = '<div class="ab-sub-title">Exhibitions &amp; Shows</div>' +
+    DATA.exhibitions.map((e, i) => `
+    <div class="exh-row" style="transition-delay:${i*40}ms">
+      <div class="exh-main">
+        <span class="exh-title">${e.title}</span>
+        ${e.game ? `<span class="exh-game">${e.game}</span>` : ''}
+      </div>
+      <div class="exh-right">
+        ${e.location ? `<span class="exh-location">${e.location}</span>` : ''}
+        <span class="exh-date">${e.date}</span>
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RUN
+// ═══════════════════════════════════════════════════════════
+buildHero();
+buildGames();
+buildWritings();
+buildAbout();
+buildPress();
+buildExhibitions();
+initNav();
+initObserver();
+</script>
+</body>
+</html>
