@@ -17,7 +17,7 @@ GAMES["inkression"] = {
 
   // ── Links shown on detail page ────────────────────────────
   links: [
-    { label: "Play on Steam", url: "https://store.steampowered.com/app/3553350/The_Hilltop_Funeral/", type: "primary" },
+    { label: "Steam Demo", url: "https://store.steampowered.com/app/2965930/Inkression/", type: "primary" },
   ],
 
   sections: [
