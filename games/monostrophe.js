@@ -137,7 +137,7 @@ Monostrophe is my Thesis project at NYU Game Center for my MFA degree. In a team
       type:   "gallery",
       title:  "Showcase Gallery",
       images: [
-        { src: "images/games/monostrophe/kotaku.jpg",           caption: "Kotaku Interview" },
+        { src: "images/games/monostrophe/86fb98c3d3258ef533ba6c005d5e1960.jpg",           caption: "Kotaku Interview" },
         { src: "images/games/monostrophe/bfoddy.jpg",           caption: "Bennett Foddy, creator of Getting Over It With Bennett Foddy, playing Monostrophe" },
       ],
     },

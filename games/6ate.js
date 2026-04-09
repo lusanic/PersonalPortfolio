@@ -7,6 +7,7 @@ GAMES["6ate"] = {
   bannerImage: "images/games/6ate/IMG_7949.jpg",
   trailerUrl:  "",
   year:        "2021",
+  tools:       [],
   role:        ["Designer"],
   modes:       [],
   team:        "5",
