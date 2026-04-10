@@ -43,10 +43,9 @@ With there being a total of six gates to choose from, we noticed that there are 
     {
       type:  "text",
       title: "Responsibilities",
-      body: `- Initiated a focused design in the lobby targeting the entrance gates.
-      - Focused design on the traffic behavior and proposed the design to alter how people choose their gates.
-      - Designed the traits for each gate, leaving rare traits to the farther side to observe change in traffic behavior.
-      - Iterated on the design and proposed placing the labels on the floor.`,
+      body: `- Identified and proposed the ==design focus== on entrance gate traffic behavior in the lobby
+- Designed the ==trait-to-gate mapping==, placing rarer desirable traits on farther gates to influence traffic flow
+- Iterated on placement and proposed ==floor-level label positioning== to improve visibility during check-in`,
     },
 
     {

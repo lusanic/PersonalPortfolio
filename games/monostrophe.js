@@ -62,28 +62,21 @@ Monostrophe is my Thesis project at NYU Game Center for my MFA degree. In a team
       subsections: [
         {
           title: "Features I Own",
-          body: `- Core game loop and narrative structure
-- All in-game puzzle design and implementation
-- Character design, behaviors, and implementations`,
-        },
-        {
-          title: "Implementations",
-          body: `- Unity URP
-- Custom C# scripting
-- Cinemachine
-- Version control (Github)`,
+          body: `- Designed the ==core game loop== and three-level narrative structure across Body, Soul, and Mind
+- Designed and implemented all ==in-game puzzles and mechanics== across 3 levels, each featuring a distinct system
+- Designed all ==character behaviors== and implemented player-controlled entities across each level`,
         },
         {
           title: "Narrative Design",
-          body: `- World, backstory, character, and progression design.`,
+          body: `- Conceived the central theme of ==free will== and the three-part structure of Body, Soul, and Mind
+- Designed the full ==world, backstory, and character progression==`,
         },
         {
           title: "Project Management",
-          body: `- Led a team of 4 with 2 artists and 1 designer, on top of collaborating and communicating with music/SFX collaborators.
-- Hosted daily and weekly meetings following a strict agile development process, allowing fast prototyping and iterations on all aspects of the game.
-- Analyzed scope and budget. Prepared the pitch deck and pitched to publishers.
-- Used Jira for assigning, tracking, and managing tasks and progress.
-`,
+          body: `- Led a ==team of 4== including artists, a designer, and external music/SFX collaborators
+- Ran ==daily and weekly agile sprints== enabling fast prototyping and iteration
+- Analyzed ==scope and budget==, prepared and pitched the ==pitch deck to publishers==
+- Used ==Jira== for task assignment, tracking, and progress management`,
         },
       ],
     },

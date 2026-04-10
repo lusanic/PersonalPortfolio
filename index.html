@@ -157,7 +157,14 @@ function buildHero() {
       s.replace(new RegExp(`\\b(${w})\\b`, 'gi'), '<span class="h-bio-kw">$1</span>'), line);
     return `<span class="h-bio-l${i+1}">${highlighted}</span>`;
   }).join('');
-  document.getElementById('nav-logo').textContent    = DATA.name;
+  document.getElementById('nav-logo').textContent = DATA.name;
+  if (DATA.resumeUrl) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = DATA.resumeUrl; a.target = '_blank'; a.textContent = 'Resume'; a.className = 'nav-resume';
+    li.appendChild(a);
+    document.querySelector('.nav-links').appendChild(li);
+  }
   document.getElementById('f-logo').textContent      = DATA.name;
   document.title = DATA.name + ' — Portfolio';
 
@@ -349,7 +356,7 @@ function buildMusic() {
 
 // ── About ─────────────────────────────────────────────────
 function buildAbout() {
-  const aboutKws = ['narrative-centric gameplay', 'interactive systems', 'real-life inspiration', 'player choice', 'narrative arcs'];
+  const aboutKws = ['game designer, developer, and writer', 'game design, development, narrative design, and project management', 'interactive systems', 'real-life inspiration', 'player choice', 'relatable and lasting memories', 'multifaceted medium', 'designing mechanics, shaping narrative arcs', 'multidisciplinary teams'];
   function highlightAbout(text) {
     return aboutKws.reduce((s, w) =>
       s.replace(new RegExp(`(${w.replace(/[-]/g,'\\$&')})`, 'gi'), '<span class="ab-kw">$1</span>'), text);

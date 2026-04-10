@@ -69,11 +69,11 @@ With the team members coming from all over the world and language barrier being 
       subsections: [
         {
           title: "Game Design",
-          body: `- Worked with the teammates to design the core gameplay from the given constraints of "Language", "Disability", and "Room"
-- Initiated the core design from experience of airport questioning stories
-- Designed multiple scenarios under which the traveling player is questioned
-- Created the Mandarin version of the interrogator and player sheets
-- Conducted playtest sessions and recorded live voice`,
+          body: `- Initiated and proposed the ==core design concept== from real-life airport interrogation experiences
+- Designed the ==core gameplay== from constraints of Language, Disability, and Room
+- Designed ==multiple interrogation scenarios== covering varied situations the traveling player may face
+- Created the ==Mandarin language materials== for both the interrogator and traveler sheets
+- Conducted ==playtest sessions== and recorded live gameplay audio`,
         },
       ],
     },

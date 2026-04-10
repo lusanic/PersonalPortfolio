@@ -109,49 +109,37 @@ As the lead designer and developer in a team of eight, I'm responsible for the a
       subsections: [
         {
           title: "Features I Own",
-          body: `- Core game loop and game feel
-- Physics infrastructure, core mechanic, and control
-- Player state machine with 8 states and state transitions
-- 3 game modes: singleplayer, local co-op, online co-op
-- Control support on keyboard and gamepad, for all 3 game modes
-- Obstacles, collectibles, damage system and repair system on the coffin and corpse
-- A timer system and level rating based on time criterias
-- UI design, implementation, and animation transitions
-- Camera behaviors and transitions
-- Custom comic book style text bubble dialogue system
-- Worldbuilding, character development, and in-game dialogues
-- Wikipedia in menu for both feature reminders and more worldbuilding
-- Environment lighting and optimization
-- Audio system and logic
-- Chinese localization for UI and story`,
-        },
-        {
-          title: "Implementations",
-          body: `- Custom scripting in C# using inheritance, scriptable objects, and an event driven architecture
-- Networking (Mirror)
-- Dialogue System (Yarn Spinner)
-- Camera (Cinemachine)
-- Audio (FMOD Studio)
-- Lighting & Optimization (URP)
-- Version control (Github)`,
+          body: `- Architected the full ==game loop== from level entry to evaluation, shaping core game feel and pacing
+- Built the ==physics infrastructure== underpinning the co-op carrying mechanic using ==configurable joints== and rigidbody forces
+- Implemented a ==9-state player FSM== handling all state transitions across local, online, and singleplayer modes
+- Engineered full ==keyboard and gamepad== support across all 3 game modes
+- Designed and implemented the ==obstacle suite==, ==collectible system==, and a coffin/corpse ==damage and repair loop==
+- Built a ==time-based level rating system== with per-level performance criteria
+- Designed and implemented all ==UI==, including layout, animation transitions, and screen flow
+- Implemented all ==camera behaviors and transitions== using Cinemachine
+- Developed a custom ==comic book-style dialogue system== with dynamic text bubbles
+- Wrote all ==worldbuilding==, character voices, and in-game dialogue
+- Built an ==in-game Wikipedia== serving as both a lore compendium and feature reference
+- Owned ==environment lighting==, performance profiling, and optimization passes
+- Integrated and scripted the full ==audio system== using FMOD Studio
+- ==Chinese localization== for all UI text and narrative content`,
         },
         {
           title: "Level Design",
-          body: `- Worked with artists and level designers to craft a bizarre world taking inspiration from Tim Burton's movies.
-- Balanced player experience and learning curve by removing unnecessary sections in multiple levels.
-- Adopted a multi-route design with hidden paths for all existing levels to allow higher replayability and speed runs.
-- Optimized level performance and visibility by removing redundant art assets.
-- Cleaned up environment layouts for better guidance and directionality.
-- Positioned collectibles, obstacles, and respawn points for a carefully crafted level pacing.`,
+          body: `- Collaborated with artists and level designers to craft a ==Tim Burton-inspired== world with cohesive tone and pacing
+- Balanced ==player experience and learning curve== by trimming overly long sections across multiple levels
+- Adopted a ==multi-route design== with hidden paths in all levels to support replayability and speedruns
+- Optimized ==level performance== by removing redundant art assets and refining visibility
+- Improved ==guidance and directionality== through environment layout cleanup
+- Positioned ==collectibles, obstacles, and respawn points== for deliberate pacing throughout each level`,
         },
         {
           title: "Project Management",
-          body: `- Oversaw a cross-functional team of 8 with designers, developers, artists, writers, and localization.
-- Bridging communication across talents from 3 different studios to collectively achieve a highly efficient workflow with effective results.
-- Hosted daily and weekly meetings following a strict agile development process, allowing fast prototyping and iterations on all aspects of the game.
-- Used Miro for moodboard and brainstorming in the early stage of the game.
-- Used project management software like Lark during production to assign, review, and manage tasks.
-- Responsible for publisher communications and actively worked with the publishing manager on scheduling, updates, events, and social media.`,
+          body: `- Oversaw a ==cross-functional team of 8== spanning design, development, art, writing, and localization
+- Bridged communication across ==3 different studios== to maintain a highly efficient and coordinated workflow
+- Ran ==daily and weekly agile sprints== enabling fast iteration across all aspects of the game
+- Used ==Lark== for task assignment and review, and ==Miro== for early-stage moodboarding and brainstorming
+- Managed ==publisher communications==, working with the publishing manager on scheduling, updates, and social media`,
         },
       ],
     },

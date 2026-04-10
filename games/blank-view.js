@@ -53,23 +53,18 @@ The game features branching narrative and an interactive environment depicted fr
       subsections: [
         {
           title: "Narrative Design",
-          body: `- Backstory, character, branching narrative design
-- All writings
-- Two endings, one moving time forward and the other backward`,
-        },
-        {
-          title: "Implementations",
-          body: `- Twine`,
+          body: `- Designed the full ==backstory, characters, and branching narrative structure==
+- Wrote the ==complete script==
+- Designed ==two endings== — one moving time forward, one moving backward — converging on the same conclusion`,
         },
         {
           title: "Game Design",
-          body: `- Designed all interactables based on the story.
-          - Guided the overall game's aesthetics`,
+          body: `- Designed all ==interactable elements== tied directly to the story and its themes
+- Directed the overall ==visual aesthetic== of the game`,
         },
-
         {
           title: "Sound Design",
-          body: `- Produced original background music using Logic Pro X`,
+          body: `- Composed and produced ==10+ original background music tracks== using ==Logic Pro X==`,
         },
       ],
     },

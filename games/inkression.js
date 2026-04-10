@@ -70,37 +70,25 @@ As the lead designer in a team of ten, I conceptualized the world, characters, a
       subsections: [
         {
           title: "Features I Own",
-          body: `- Core game loop
-- Core mechanic of color transformation and texture revelation using custom shaders with a burning edge effect on all objects upon interaction.
-- Core mechanic of stories guided by tattoo designs: each character is represented with clues that transform into mini tattoo designs upon discovery. Unlocking all mini tattoos reveals the final tattoo design and concludes their arc.
-- Mini-games/mechanics for each mini tattoo clue and character based on their story.
-- Movement, navigation, camera, and control mapping.
-- Chinese localization for the main script and UI elements.`,
-        },
-        {
-          title: "Implementations",
-          body: `- Unity URP
-- Custom C# scripts using inheritance and scriptable objects
-- Unity’s Dialogue System
-- Cinemachine
-- FMOD
-- Version control (Github)`,
+          body: `- Designed the ==core game loop== and player flow across all story arcs
+- Built a ==color transformation system== using ==custom shaders== with a burning edge reveal effect for all interactable objects
+- Designed and implemented the ==tattoo-guided story system==: clues transform into mini tattoo designs on discovery, combining into a final character tattoo to conclude each arc
+- Created ==character-specific mini-games== mechanically tailored to each story
+- Implemented ==movement, navigation, camera, and control mapping==
+- ==Chinese localization== for the full script and all UI elements`,
         },
         {
           title: "Narrative Design",
-          body: `- All story, background, settings, characters, and dialogues.
-- Backstory and background design: a fictional city neighborhood based on NYC.
-- Character design for 15+ characters, including the protagonist.
-- Wrote the main script with 50k+ words.`,
+          body: `- Designed the full ==world, backstory, and setting== — a fictional NYC neighborhood spanning two timelines
+- Created ==15+ characters== including the protagonist, each with distinct voice and story arc
+- Wrote the ==main script at 50,000+ words==`,
         },
         {
           title: "Project Management",
-          body: `- Oversaw a cross-functional team of 10 with designers, developers, artists, writers, sound designers, composers, and localization.
-- Hosted daily and weekly meetings following a strict agile development process, allowing fast prototyping and iterations on all aspects of the game.
-- Used Miro for moodboard and storyboard development.
-- Used project management software like Lark during production to assign, review, and manage tasks.
-- Worked with tattoo artists from around the world on the in-game tattoo designs. 
-`,
+          body: `- Oversaw a ==cross-functional team of 10== spanning design, development, art, writing, sound, and localization
+- Ran ==daily and weekly agile sprints== enabling fast iteration across all aspects of the game
+- Used ==Lark== for task management and ==Miro== for moodboarding and storyboarding
+- Collaborated with ==professional tattoo artists from NYC== to develop authentic in-game flash designs`,
         },
       ],
     },

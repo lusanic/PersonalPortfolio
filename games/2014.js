@@ -56,22 +56,14 @@ This project was made during my time at NYU Game Center. As the narrative design
       subsections: [
         {
           title: "Game Design",
-          body: `- Core game loop: file reading system, branching narrative
-- Callback interactions and motifs
-- Cutscene sequences
-- Menu functionalities`,
-        },
-        {
-          title: "Implementations",
-          body: `- Unity
-- Custom C# scripting
-- Version control (Github)`,
+          body: `- Designed the ==core game loop== around a ==file reading system== and branching narrative
+- Designed ==post-decision interaction motifs== as metaphorical feedback for each player choice
+- Scripted ==cutscene sequences== and all menu functionalities`,
         },
         {
           title: "Narrative Design",
-          body: `- World, backstory, character, and progression design.
-          - Branching narrative
-          - All writing`,
+          body: `- Designed the ==world, backstory, characters, and progression== set 30 years after Orwell's 1984
+- Wrote the full ==branching narrative== and all in-game text`,
         },
       ],
     },

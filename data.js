@@ -8,13 +8,14 @@
 const DATA = {
 
   // ── Personal ──────────────────────────────────────────────
-  name:    "Luke Li",
-  tagline: "Designer · Developer · Writer",
+  name:      "Luke Li",
+  tagline:   "Designer · Developer · Writer",
+  resumeUrl: "https://drive.google.com/file/d/1PxOYzMve0HoJ2de_Wbz35kZsKKANdMjG/view?usp=sharing",
   heroBio: "Writing code to invent new ways we play.\n\nDesigning play to tell heartfelt stories.",
 
   aboutBio: [
     "Hi, I'm Luke — a game designer, developer, and writer with a strong focus in narrative-centric gameplay and over five years of experience applying my skills across game design, development, narrative design, and project management.",
-    "I’m driven by a deep curiosity for what games can do and how interactive systems can create emotional, memorable, and meaningful player experiences. My work blends real-life inspiration with thoughtful player choice, aiming to craft stories that feel personal, relatable, and lasting.",
+    "I’m driven by a deep curiosity for what games can do and how interactive systems can create emotional and memorable player experiences. My work blends real-life inspiration with thoughtful player choice to craft relatable and lasting memories.",
     "I’m fascinated by games as a multifaceted medium—one that blends the collective creativity of a team to craft unique experiences that truly resonate with players. Whether designing mechanics, shaping narrative arcs, or guiding multidisciplinary teams, I bring creativity, clarity, and a hands-on approach to every project. I strive to build worlds that players can connect with — worlds that stay with them long after the game ends."
   ],
 

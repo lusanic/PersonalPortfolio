@@ -83,6 +83,7 @@ function md(text) {
 function inlineMd(t) {
   return t
     .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+    .replace(/==(.+?)==/g, '<span class="kw">$1</span>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+?)\*/g,  '<em>$1</em>');
 }
@@ -512,7 +513,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('d-sidebar').innerHTML = `
     <div class="d-sb-item"><div class="d-sb-lbl">Role</div><div class="d-sb-pills">${(Array.isArray(g.role) ? g.role : [g.role]).map(r=>`<span class="pill-mode">${r}</span>`).join("")}</div></div>
-    <div class="d-sb-item"><div class="d-sb-lbl">Tools</div><div class="d-sb-pills">${pills(g.tools)}</div></div>
+    ${g.tools && g.tools.length ? `<div class="d-sb-item"><div class="d-sb-lbl">Tools</div><div class="d-sb-pills">${pills(g.tools)}</div></div>` : ''}
     <div class="d-sb-item"><div class="d-sb-lbl">Year</div><div class="d-sb-val">${g.year}</div></div>
     <div class="d-sb-item"><div class="d-sb-lbl">Genre</div><div class="d-sb-val">${g.genre}</div></div>
     ${g.modes && g.modes.length ? `<div class="d-sb-item"><div class="d-sb-lbl">Game Mode</div><div class="d-sb-pills">${pills(g.modes)}</div></div>` : ''}

@@ -59,13 +59,13 @@ Highly supported by Professor Eric Zimmerman, Randomly Selected was the final pr
       subsections: [
         {
           title: "Audio Design",
-          body: `- Coordinated recording sessions with players of the original S.S.S.S. game with professional recording equipment
-          - Mixed, edited, and organized the audio files for the installation using Logic Pro X
-          - Designed the dynamic audio space by using two speakers to play the interrogator and traveler's voice respectively`,
+          body: `- Coordinated ==recording sessions== with 8 participants using professional recording equipment
+- Mixed, edited, and mastered all ==audio files== for installation-grade playback using ==Logic Pro X==
+- Designed the ==dual-speaker audio space== with separate tracks for the interrogator and traveler voices`,
         },
         {
           title: "Installation Design",
-          body: `- Designed the installation space, material placement, and prop placement`,
+          body: `- Designed the ==installation space layout==, including material placement and hidden speaker positioning for immersion`,
         },
       ],
     },
